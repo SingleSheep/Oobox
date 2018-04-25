@@ -1,0 +1,173 @@
+<div class="app-header navbar-md white no-radius grey dk no-bg">
+    <div class="container">
+        <div class="navbar">
+            <a href="/" class="navbar-brand logo">
+                {include file="public/logo"}
+                <span class="label rounded skin pos-rlt text-xs m-l-xs hidden-md-down animated bounceInDown" style="vertical-align: 3px;">
+                    <b class="arrow left b-skin pull-in"></b>
+                    One
+                  </span>
+            </a>
+            <!-- nabar right -->
+            <ul class="nav navbar-nav pull-right">
+                <li class="nav-item main-i hidden-md-up">
+                    <a data-toggle="modal" data-target="#aside" class="nav-link">
+                        <span><i class="nav-text icon-list"></i></span>
+                    </a>
+                </li>
+                <li class="nav-item main-i m-l-md hidden-md-up">
+                    <a data-toggle="collapse" data-target="#navbar-4" class="nav-link">
+                        <span><i class="nav-text icon-magnifier"></i></span>
+                    </a>
+                </li>
+                <li class="nav-item main-i dropdown hidden-xs-down">
+                    <a href class="nav-link" data-toggle="dropdown" title="账户余额">
+                        <i class="nav-text icon-wallet"></i>
+                        <span class="label up p-a-0 accent"></span>
+                    </a>
+                    {if $userData}
+                    <div class="dropdown-menu w-lg text-color no-borders pull-right p-a-0 animated flipInX" style="right: -30px">
+                        <div class="box r-t r-b dark m-b-0">
+                            <span class="arrow top pull-right b-dark" style="right: 52px;"></span>
+                            <div class="box-body text-center">
+                                <h6 class="text-u-c p-v-sm m-a-0 m-t">我的账户</h6>
+                                <h3 class="m-a-0 m-l m-v p-t-md">
+                                    <sup class="price text-sm" style="top: -.3rem;">￥</sup>
+                                    <span class="h2 price">1000</span>
+                                    <span class="text-xs">/ 可用</span>
+                                </h3>
+                            </div>
+                            <div class="box-footer p-t-sm p-b-md text-center">
+                                <a href="/User/deposit/" target="_blank" class="btn btn-fw p-y-xs skin">充值</a>
+                            </div>
+                        </div>
+                    </div>
+                    {else}
+                    <div class="dropdown-menu pull-right box-shadow-z3 dropdown-menu-scale lt sub-drop b-skin">
+                        <a href="{:url('index/Entry/login')}" class="dropdown-item"><span class="nav-text">登录</span></a>
+                        <a href="{:url('index/Entry/register')}" class="dropdown-item"><span class="nav-text">注册</span></a>
+                    </div>
+                    {/if}
+                </li>
+
+                <li class="nav-item main-i hidden-xs-down" data-toggle="tooltip" data-placement="bottom" title="控制面板">
+                    <a href="/User/settings" class="nav-link">
+                        <span><i class="nav-text icon-settings"></i></span>
+                    </a>
+                </li>
+                {if $userData}
+                <li class="nav-item dropdown">
+                    <a href="/User/{$userData.username}" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                        {if $userData.avatarUrl != ''}
+                        <span class="w-32 avatar">
+                        <img alt="{$user.username}" src="uploads/users/{$userData.uid}/A_{$userData.avatarUrl}" />
+                        </span>
+                        {else}
+                        <span class="w-32 circle skin _100">
+                          NP
+                        </span>
+                        {/if}
+                    </a>
+                    <div class="dropdown-menu w-xxl pull-right dropdown-menu-scale p-a-0 m-t-0">
+                        <div class="box white text-center m-b-0">
+                            <span class="arrow top pull-right b-skin" style="right: 42px;"></span>
+                            <div class="p-a skin">
+                                <p>
+                                    <a href="/User/{$userData.username}" class="hover" title="个人主页">
+                                        {if $userData.avatarUrl != ''}
+                                        <img alt="{$user.username}" src="Uploads/User/{$userData.user_id}/A_{$userData.avatarUrl}" class="img-circle w-96 b-a b-3x b-white hover-rotate360" />
+                                        {else}
+                                        <span class="w-96 circle skin text-md b-a b-3x b-white hover-rotate360">
+                                        <span class="price opacity" style="vertical-align: 0%;">NOPIC</span></span>
+                                        {/if}
+                                    </a>
+                                </p>
+                                <a href="/User/{$userData.username}" class="h4 block">
+                                    {$userData.username}
+                                </a>
+                                <p class="m-b-0"><small>{if $userData != ''}我是傻逼！{else}您太懒了，未填写签名哦{/if}</small></p>
+                            </div>
+                            <div class="row white white lt wr no-gutter text-skin-hover">
+                                <div class="col-xs-4 b-r b-b">
+                                    <a href="/User/{$userData.username}" class="p-a block text-center">
+                                        <i class="icon-home md-24 text-muted m-v-sm"></i>
+                                        <span class="block">主页</span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-4 b-r b-b">
+                                    <a href="/User/dashboard" class="p-a block text-center">
+                                        <i class="icon-speedometer md-24 text-muted m-v-sm"></i>
+                                        <span class="block">控制台</span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-4 b-b">
+                                    {if $userData == 'true'}
+                                    <a href="/User/upload/" class="p-a block text-center">
+                                        <i class="icon-note md-24 text-muted m-v-sm"></i>
+                                        <span class="block">发布作品</span>
+                                    </a>
+                                    {else}
+                                    <a href="/User/author_dashboard/" class="p-a block text-center">
+                                        <i class="icon-note md-24 text-muted m-v-sm"></i>
+                                        <span class="block">成为作者</span>
+                                    </a>
+                                    {/if}
+                                </div>
+                                <div class="col-xs-4 b-r">
+                                    <a href="/User/download/" class="p-a block text-center">
+                                        <i class="icon-cloud-download md-24 text-muted m-v-sm"></i>
+                                        <span class="block">已购买</span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-4 b-r">
+                                    <a href="/User/bookmarks/" class="p-a block text-center">
+                                        <i class="icon-star md-24 text-muted m-v-sm"></i>
+                                        <span class="block">书签</span>
+                                    </a>
+                                </div>
+                                <div class="col-xs-4">
+                                    <a href="{:url('index/ucenter/logout')}" class="p-a block text-center" id="sign-out-button">
+                                        <i class="icon-power md-24 text-muted m-v-sm"></i>
+                                        <span class="block text-sm">退出</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                {else}
+
+
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle clear" data-toggle="dropdown">
+                        <span class="circle skin _100 w-32">
+                          NP
+                        </span>
+                    </a>
+                    <div class="dropdown-menu pull-right box-shadow-z3 dropdown-menu-scale lt sub-drop b-skin">
+                        <a href="{:url('index/Entry/login')}" class="dropdown-item"><span class="nav-text">登录</span></a>
+                        <a href="{:url('index/Entry/register')}" class="dropdown-item"><span class="nav-text">注册</span></a>
+                    </div>
+                </li>
+                {/if}
+            </ul>
+            <!-- / navbar right -->
+            <!-- navbar collapse -->
+            <div class="collapse navbar-toggleable-sm" id="navbar-4" data-pjax>
+                <!-- search form -->
+                <form id="search" action="/search/" method="GET" class="navbar-form form-inline pull-right pull-none-sm navbar-item v-m m-s" role="search">
+                    <div class="form-group l-h m-a-0">
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control p-x b-a rounded" name="term" placeholder="Search projects..." />
+                            <span class="input-group-btn">
+                <button type="submit" class="btn white b-a rounded no-b-l no-shadow"><i class="icon-magnifier"></i></button>
+              </span>
+                        </div>
+                    </div>
+                </form>
+                <!-- / search form -->
+            </div>
+            <!-- / navbar collapse -->
+        </div>
+    </div>
+</div>

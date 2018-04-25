@@ -1,0 +1,118 @@
+{__NOLAYOUT__}
+{include file="public/header"/}
+{include file="public/user_top"/}
+<div class="clearfix white">
+    <div class="container">
+        <div class="row-col">
+            <div class="col-sm b-r b-l">
+                <div class="box edit pos-rlt m-b-0">
+                    <div class="p-a-md">
+                        <h3 class="h4 h3-xs m-b-md">快讯</h3>
+                        <div class="clearfix p-b-md">
+                            <a class="fastmsgimg pull-left m-r-md" href="/author_dashboard/?m=qnews&amp;c=list" title="这是一个示例新闻">
+                                <img class="img-responsive" src="" alt="这是一个示例新闻" title="这是一个示例新闻">
+                            </a>
+                            <div class="clear">
+                                <h3 class="m-t-none"><a href="/author_dashboard/?m=qnews&amp;c=list" title="这是一个示例新闻">这是一个示例新闻</a></h3>
+                                <p>
+                                    这是一个示例新闻，你可以点击标题更换。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="line line-dashed b-b line-lg pull-in p-t-md">
+                        </div>
+                        <h3 class="h4 h3-xs m-t-md m-b-md">资金明细</h3>
+                        <table class="table table-striped table-hover" cellpadding="0" cellspacing="0">
+                            <thead>
+                            <tr class="blue lt">
+                                <th width="120">
+                                    日期
+                                </th>
+                                <th width="100">
+                                    类型
+                                </th>
+                                <th width="100">
+                                    数额
+                                </th>
+                                <th>
+                                    详情
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td colspan="4">
+                                    暂无记录
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="line line-dashed b-b line-lg pull-in">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm w-xxl b-r">
+                <div class="box edit pos-rlt m-b-0">
+                    <div class="">
+                        <form class="p-a b-b" id="begin-upload" action="/" method="get">
+                            <fieldset class="vertical-form">
+                                <div class="form-group">
+                                    <div class="inputs">
+                                        <select class="form-control" id="category" name="category">
+                                            <option value="1">html模板</option>
+                                            <option value="3">高清图片</option>
+                                            <option value="17">特效代码</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <a onclick="window.location=&#39;/upload/form/?category=&#39; + document.getElementById(&#39;category&#39;).options[document.getElementById(&#39;category&#39;).selectedIndex].value;" class="btn skin btn-sm">下一步</a>
+                                    <a href="/help/upload/" class="btn btn-link fs-14 btn-sm" target="_blank">帮助</a>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <div class="row no-gutter b-b text-skin-hover">
+                            <div class="col-xs-6 b-r">
+                                <a class="p-a block text-center">
+                                    <span class="h5 price _800 m-v-sm inline">0.00</span>
+                                    <span class="block">账户余额</span>
+                                </a>
+                            </div>
+                            <div class="col-xs-6">
+                                <a class="p-a block text-center">
+                                    <span class="h5 price _800 m-v-sm inline">0.00</span>
+                                    <span class="block">收入余额</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="p-a b-b">
+                            <h5 class="bordertit">本周统计</h5>
+                            <div class="borderbg">
+                                <p class="m-b-0">
+                                    获得收入<strong class="text-lg price p-x-sm">0.00</strong>元<br>
+                                    售出作品<strong class="text-lg price p-x-sm">0</strong>次
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .line-dashed{border-bottom-style: dotted}
+</style>
+<script type="text/javascript">
+    seajs.use(["jq"], function($){
+        $("textarea").on("keyup keydown",function(){
+            var h=$(this);
+            h.height(20).height(h[0].scrollHeight);
+        });
+    });
+</script>
+{include file="public/footer"/}
+{include file="public/backtop"/}
+{include file="public/mb-settings"/}
+{include file="public/script"/}

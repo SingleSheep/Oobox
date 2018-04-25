@@ -1,0 +1,80 @@
+<!-- Main Container -->
+<main id="main-container">
+    <!-- Page Header -->
+    <div class="content bg-gray-lighter">
+        <div class="row items-push">
+            <div class="col-sm-7">
+                <h1 class="page-heading">
+                    文章管理
+                </h1>
+            </div>
+            <div class="col-sm-5 text-right hidden-xs">
+                <ol class="breadcrumb push-10-t">
+                    <li>文章管理</li>
+                    <li><a class="link-effect" href="">文章列表</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- END Page Header -->
+
+    <!-- Page Content -->
+    <div class="content">
+        <!-- Full Table -->
+        <div class="block">
+            <div class="block-header">
+                <div class="block-options">
+                    <button class="btn btn-minw btn-rounded btn-success" type="button"><i class="fa fa-plus"></i> 新增文章</button>
+                </div>
+                <h3 class="block-title">文章列表</h3>
+            </div>
+            <div class="block-content">
+                <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                    <table class="table table-bordered table-striped js-dataTable-full dataTable no-footer">
+                        <thead>
+                        <tr>
+                            <th class="text-center" style="width: 5%;">ID</th>
+                            <th style="width: 5%;">主图</th>
+                            <th style="width: 10%;">标题</th>
+                            <th style="width: 5%;">作者</th>
+                            <th style="width: 20%;">摘要</th>
+                            <th style="width: 10%;">发布时间</th>
+                            <th class="text-center" style="width: 5%;">状态</th>
+                            <th class="text-center sorting_disabled" style="width: 5%;" rowspan="1" colspan="1" aria-label="Actions">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {foreach name="data" id="v"}
+                        <tr>
+                            <td class="text-center">{$v['id']}</td>
+                            <td><img style="height: 50px;width: auto;" src="{$v['url']}" /></td>
+                            <td>{$v['title']}</td>
+                            <td>{$v['author']}</td>
+                            <td>{$v['abstract']}</td>
+                            <td>{$v['create_time']}</td>
+                            <td class="text-center">
+                                {eq name="$v['status']" value="1"}
+                                <span class="label label-success">正常</span>
+                                {else /}
+                                <span class="label label-danger">禁止</span>
+                                {/eq}
+                            </td>
+                            <td class="text-center">
+                                <div class="btn-group">
+                                    <a href="{:url('admin/article/edit',array('id'=>$v['id']))}" class="btn btn-sm btn-default" type="button" data-toggle="tooltip" title="编辑"><i class="fa fa-pencil"></i></a>
+                                    <button class="btn btn-sm btn-default" type="button" data-toggle="tooltip" title="删除"><i class="fa fa-times"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        {/foreach}
+                        </tbody>
+                    </table>
+                </div>
+                {$data->render()}
+            </div>
+        </div>
+        <!-- END Full Table -->
+    </div>
+    <!-- END Page Content -->
+</main>
+<!-- END Main Container -->

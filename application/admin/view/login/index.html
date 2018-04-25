@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="">
+<!-- Mirrored from coderthemes.com/velonic_3.0/admin_3/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 29 May 2016 14:53:39 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+    <meta name="author" content="Coderthemes">
+
+    <link rel="shortcut icon" href="__IMG__/favicon_1.ico">
+
+    <title>MomoCampus - 后台管理</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="__CSS__/bootstrap.min.css" rel="stylesheet">
+    <link href="__CSS__/bootstrap-reset.css" rel="stylesheet">
+
+    <!--Animation css-->
+    <link href="__CSS__/animate.css" rel="stylesheet">
+
+    <!--Icon-fonts css-->
+    <link href="__STATIC__/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="__STATIC__/assets/ionicon/css/ionicons.min.css" rel="stylesheet" />
+
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="__STATIC__/assets/morris/morris.css">
+
+    <!-- sweet alerts -->
+    <link href="__STATIC__/assets/sweet-alert/sweet-alert.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="__CSS__/style.css" rel="stylesheet">
+    <link href="__CSS__/helper.css" rel="stylesheet">
+
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+    <script src="__JS__/html5shiv.js"></script>
+    <script src="__JS__/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<div class="wrapper-page animated fadeInDown">
+    <div class="panel panel-color panel-primary">
+        <div class="panel-heading">
+            <h3 class="text-center m-t-10"> Momo <strong>后台管理</strong> </h3>
+        </div>
+        <form class="form-horizontal m-t-40">
+            <div class="form-group ">
+                <div class="col-xs-12">
+                    <input id="username" class="form-control" type="text" placeholder="用户名">
+                </div>
+            </div>
+            <div class="form-group ">
+                <div class="col-xs-12">
+                    <input id="password" class="form-control" type="password" placeholder="用户密码">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-6">
+                    <input id="code" type="text" placeholder="验证码" class="form-control ">
+                </div>
+                <div class="col-xs-6">
+                    <img id="verify-img" src="{:url('admin/login/verify')}" onclick="refreshVerify()"  alt="验证码" />
+                </div>
+            </div>
+            <div class="form-group ">
+                <div class="col-xs-12">
+                    <label class="cr-styled">
+                        <input type="checkbox" checked>
+                        <i class="fa"></i>
+                        记住登录
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group text-right">
+                <div class="col-xs-12">
+                    <button class="btn btn-block btn-lg btn-primary" id="login" type="button">登录</button>
+                </div>
+            </div>
+            <div class="form-group m-t-30">
+                <div class="col-sm-7">
+                    <a href="recoverpw.html"><i class="fa fa-lock m-r-5"></i> 忘记密码?</a>
+                </div>
+                <div class="col-sm-5 text-right">
+                    <a href="register.html">创建新账户</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="__JS__/jquery.js"></script>
+<script src="__JS__/bootstrap.min.js"></script>
+<script src="__JS__/pace.min.js"></script>
+<script src="__JS__/wow.min.js"></script>
+<script src="__JS__/jquery.nicescroll.js" type="text/javascript"></script>
+<!--layer-->
+<script src="/static/layer/layer.js" type="text/javascript"></script>
+<!--common script for all pages-->
+<script src="__JS__/jquery.app.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        //登录操作
+        $('#login').click(function(){
+            var username=$('#username').val();
+            var password=$("#password").val();
+            var verify=$("#code").val();
+            var ts = Date.parse(new Date())/1000;
+            if(username!=""&&password!=""&&verify!=""){
+                $("#login").html("登录中...").attr("disabled", true);
+                $.ajax({
+                    type:"post",
+                    url:"{:url('admin/login/login')}",
+                    dataType:"json",
+                    data:{
+                        "username":username,
+                        "password":password,
+                        "code":verify
+                    },
+                    success:function(data){
+                        if(data.code == 1){
+                            $("#login").html(data.msg);
+                            window.location.href=data.data;
+                        }else {
+                            $("#login").html(data.msg).attr("disabled", false);
+                            $('#verify-img').attr("src", "{:url('admin/login/verify')}?id="+ts);
+                            layer.alert(data.msg, {icon: 5});
+                        }
+                    }
+                })
+            }else{
+                layer.alert("请检查您的输入！", {icon: 5});
+                $('#verify-img').attr("src", "{:url('admin/login/verify')}?id="+ts);
+                $("#login").html("请检查您的输入！");
+            }
+        })
+    });
+    function refreshVerify() {
+        var ts = Date.parse(new Date())/1000;
+        $('#verify-img').attr("src", "{:url('admin/login/verify')}?id="+ts);
+    }
+</script>
+</body>
+<!-- Mirrored from coderthemes.com/velonic_3.0/admin_3/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 29 May 2016 14:53:39 GMT -->
+</html>

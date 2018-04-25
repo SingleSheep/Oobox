@@ -1,0 +1,67 @@
+<div class="wraper container-fluid">
+    <div class="page-title">
+        <h3 class="title">订单管理</h3>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">订单列表</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>#ID</th>
+                                        <th>订单号</th>
+                                        <th>订单标题</th>
+                                        <th>收货人</th>
+                                        <th>接单人</th>
+                                        <th>佣金</th>
+                                        <th>创建时间</th>
+                                        <th>状态</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>  {foreach name="data" id="v"}
+                                    <tr>
+                                        <td>{$v['id']}</td>
+                                        <td>{$v['OrderNum']}</td>
+                                        <td>{$v['title']}</td>
+                                        <td>{$v['uid']}</td>
+                                        <td>{$v['puid']}</td>
+                                        <td>{$v['price']}</td>
+                                        <td>{$v['create_time']}</td>
+                                        <td>
+                                            {switch name="$v['status']"}
+                                            {case value="1"
+                                            }<span class="label label-info">进行中</span>{/case}
+                                            {case value="2"}
+                                            <span class="label label-success">已结单</span>{/case}
+                                            {case value="3"}
+                                            <span class="label label-warning">待评价</span>{/case}
+                                            {default /}
+                                            <span class="label label-pink">待接单</span>
+                                            {/switch}
+                                        </td>
+                                        <td>
+                                            <span class="label label-info"><i class="fa fa-edit"></i></span>
+                                            <span class="label label-danger"><i class="fa fa-remove"></i></span>                                        </td>
+                                    </tr>
+                                    {/foreach}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End row -->
+
+</div>

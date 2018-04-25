@@ -1,0 +1,90 @@
+    <!-- Main Container -->
+    <main id="main-container">
+        <!-- Page Header -->
+        <div class="content bg-gray-lighter">
+            <div class="row items-push">
+                <div class="col-sm-7">
+                    <h1 class="page-heading">
+                        订单管理
+                    </h1>
+                </div>
+                <div class="col-sm-5 text-right hidden-xs">
+                    <ol class="breadcrumb push-10-t">
+                        <li>订单管理</li>
+                        <li><a class="link-effect" href="">订单列表</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- END Page Header -->
+
+        <!-- Page Content -->
+        <div class="content">
+            <!-- Full Table -->
+            <div class="block">
+                <div class="block-header">
+                    <h3 class="block-title">订单列表</h3>
+                </div>
+                <div class="block-content">
+                    <p class="push-30">  这里可以写提示</p>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped table-vcenter">
+                            <thead>
+                            <tr>
+                                <th class="text-center" style="width: 5%;"><i class="fa fa-circle-o-notch"></i></th>
+                                <th style="width: 10%;">订单号</th>
+                                <th style="width: 15%;">标题</th>
+                                <th style="width: 5%;">金额</th>
+                                <th style="width: 10%;">支付方式</th>
+                                <th style="width: 10%;">收货人</th>
+                                <th style="width: 10%;">送货人</th>
+                                <th class="text-center" style="width: 10%;">收货时间</th>
+                                <th class="text-center" style="width: 10%;">创建时间</th>
+                                <th class="text-center" style="width: 5%;">状态</th>
+                                <th class="text-center" style="width: 10%;">订单操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {foreach name="data" id="v"}
+                            <tr>
+                                <td class="text-center">{$v['id']}</td>
+                                <td class="font-w600">{$v['OrderNum']}</td>
+                                <td class="font-w600">{$v['title']}</td>
+                                <td class="font-w600">{$v['price']}</td>
+                                <td>{$v['price']}</td>
+                                <td>{$v['uid']}</td>
+                                <td>{$v['puid']}</td>
+                                <td>2017/10/12 12:35:35</td>
+                                <td>{$v['create_time']}</td>
+                                <td>
+
+                                    {switch name="$v['status']"}
+                                    {case value="1"
+                                    }<span class="label label-info">进行中</span>{/case}
+                                    {case value="2"}
+                                    <span class="label label-success">已结单</span>{/case}
+                                    {case value="3"}
+                                    <span class="label label-warning">待评价</span>{/case}
+                                    {default /}
+                                    <span class="label label-pink">待接单</span>
+                                    {/switch}
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn-group">
+                                        <a href="{:url('admin/order/invoice',array('OrderId'=>$v['id']))}" class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="编辑"><i class="fa fa-pencil"></i></a>
+                                        <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="删除"><i class="fa fa-times"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            {/foreach}
+                            </tbody>
+                        </table>
+                        {$data->render()}
+                    </div>
+                </div>
+            </div>
+            <!-- END Full Table -->
+        </div>
+        <!-- END Page Content -->
+    </main>
+    <!-- END Main Container -->

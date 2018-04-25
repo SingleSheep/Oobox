@@ -1,0 +1,86 @@
+<!-- Main Container -->
+<main id="main-container">
+    <!-- Page Header -->
+    <div class="content bg-gray-lighter">
+        <div class="row items-push">
+            <div class="col-sm-7">
+                <h1 class="page-heading">
+                    会员管理
+                </h1>
+            </div>
+            <div class="col-sm-5 text-right hidden-xs">
+                <ol class="breadcrumb push-10-t">
+                    <li>会员管理</li>
+                    <li><a class="link-effect" href="">会员列表</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- END Page Header -->
+
+    <!-- Page Content -->
+    <div class="content">
+        <!-- Full Table -->
+        <div class="block">
+            <div class="block-header">
+                <div class="block-options">
+                    <button class="btn btn-minw btn-rounded btn-success" type="button"><i class="fa fa-plus"></i> 添加会员</button>
+                </div>
+                <h3 class="block-title">会员列表</h3>
+            </div>
+            <div class="block-content">
+                <div class="table-responsive">
+                    <table class="js-table-checkable table table-bordered table-striped table-vcenter">
+                        <thead>
+                        <tr>
+                            <th class="text-center" style="width: 70px;">
+                                <label class="css-input css-checkbox css-checkbox-primary remove-margin-t remove-margin-b">
+                                    <input type="checkbox" id="check-all" name="check-all"><span></span>
+                                </label>
+                            </th>
+                            <th style="width:10%;"><i class="si si-users"></i> UserID</th>
+                            <th style="width: 10%;">头像</th>
+                            <th style="width: 15%;">OpenId</th>
+                            <th style="width: 10%;">姓名</th>
+                            <th style="width: 10%;">昵称</th>
+                            <th style="width: 10%;">电话</th>
+                            <th style="width: 20%;">地址</th>
+                            <th style="width: 5%;">状态</th>
+                            <th class="text-center" style="width: 10%;">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {foreach name="data" id="v"}
+                        <tr>
+                            <td class="text-center">
+                                <label class="css-input css-checkbox css-checkbox-primary">
+                                    <input type="checkbox" id="row_1" name="row_1"><span></span>
+                                </label>
+                            </td>
+                            <td>{$v['uid']}</td>
+                            <td><img style="height: 48px;" src="{$v['avatarUrl']}"></td>
+                            <td>{$v['openId']}</td>
+                            <td>{$v['username']}</td>
+                            <td>{$v['nickName']}</td>
+                            <td>{$v['phone']}</td>
+                            <td>{$v['province']}{$v['city']}</td>
+                            <td><span class="label label-success">正常</span></td>
+                            <td class="text-center">
+                                <div class="btn-group">
+                                    <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="编辑会员"><i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="删除会员"><i class="fa fa-times"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        {/foreach}
+                        </tbody>
+                    </table>
+                </div>
+                {$data->render()}
+            </div>
+        </div>
+        <!-- END Full Table -->
+    </div>
+    <!-- END Page Content -->
+</main>
+<!-- END Main Container -->

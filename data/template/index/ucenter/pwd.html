@@ -1,0 +1,47 @@
+<!-- ############ PAGE START-->
+
+
+<div class="clearfix white b-t">
+    <div class="container">
+        <div class="row-col">
+            <div class="col-sm w-xl box w-auto-xs b-r b-l right-bar">
+                {include file="public::edit_nav" /}
+            </div>
+            <div class="col-sm" id="taber">
+
+                <div class="box edit pos-rlt b-r m-b-0">
+                    <div class="p-a">
+                        <div class="box-body" id="profile">
+                            <form role="form" action="" method="post">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="h6 p-b-xs" for="current_password">当前密码</label>
+                                        <input id="current_password" class="form-control" name="password" required="true" type="password" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="h6 p-b-xs" for="user_password">输入新密码</label>
+                                        <input type="password" class="form-control" id="user_password" name="new_password" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="h6 p-b-xs" for="user_password_again">确认新密码</label>
+                                        <input type="password" class="form-control" id="user_password_again" name="new_password_confirm" />
+                                    </div>
+
+                                    <div class="form-group m-t-md m-b-0">
+                                        <input type="hidden" name="change_password" value="yes" />
+                                        <button class="btn skin b-skin" type="submit">保存</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+<!-- ############ PAGE END-->

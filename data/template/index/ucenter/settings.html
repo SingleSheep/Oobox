@@ -1,0 +1,62 @@
+{__NOLAYOUT__}
+{include file="public/header"}
+<script src="/static/mbthemes/scripts/canvas/animation.js"></script>
+</head>
+<body style="background-image: none; max-width: 100%">
+{include file="public/pagenav-user-settings"}
+<div class="black app" id="app">
+    <!--<div class="gradient-overlay"></div>-->
+    <!-- ############ LAYOUT START-->
+    <div class="h-v row-col">
+        <div class="row-cell v-m text-center animated zoomIn">
+
+            <a href="/User/{$userData.username}"  class="inline m-r-lg">
+        <span class="w-96 rounded bigicon blue-500">
+          <i class="icon-browser h1 inlinei"></i>
+        </span>
+                <h6 class="m-t-lg">我的主页</h6>
+            </a>
+            <a href="/User/edit/{$userData.username}" class="inline m-r-lg">
+        <span class="w-96 rounded bigicon deep-orange-600">
+          <i class="icon-layers2 h1 inlinei"></i>
+        </span>
+                <h6 class="m-t-lg">个人设置</h6>
+            </a>
+            <a href="/download/" class="inline m-r-lg">
+        <span class="w-96 rounded bigicon green-600">
+          <i class="icon-download h1 inlinei"></i>
+        </span>
+                <h6 class="m-t-lg">已购买</h6>
+            </a>
+            <a href="/upload/" class="inline m-r-lg">
+        <span class="w-96 rounded bigicon amber-700">
+          <i class="icon-upload h1 inlinei text-white"></i>
+        </span>
+                <h6 class="m-t-lg">上传作品</h6>
+            </a>
+            <a href="/user/bookmarks/" class="inline m-r-lg">
+        <span class="w-96 rounded bigicon pink-500">
+          <i class="icon-pricetags h1 inlinei"></i>
+        </span>
+                <h6 class="m-t-lg">书签</h6>
+            </a>
+            <a href="/author_dashboard/" class="inline">
+        <span class="w-96 rounded bigicon info dk">
+          <i class="icon-mobile h1 inlinei"></i>
+        </span>
+                <h6 class="m-t-lg">销售统计</h6>
+            </a>
+
+        </div>
+    </div>
+
+    {include file="public/mb-settings"}
+    <!-- ############ LAYOUT END-->
+</div>
+<style>
+    #changeskins{display: none}
+    .inlinei{
+        vertical-align: -11px;
+    }
+</style>
+</body>

@@ -1,0 +1,88 @@
+<main id="main-container" style="min-height: 931px;">
+    <!-- Page Header -->
+    <div class="content bg-gray-lighter">
+        <div class="row items-push">
+            <div class="col-sm-8">
+                <h1 class="page-heading">
+                    小工具
+                </h1>
+            </div>
+            <div class="col-sm-4 text-right hidden-xs">
+                <ol class="breadcrumb push-10-t">
+                    <li>小工具</li>
+                    <li><a class="link-effect" href="">二维码</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- END Page Header -->
+
+    <!-- Page Content -->
+    <div class="content">
+        <!-- Material Design -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Static Labels -->
+                <div class="block">
+                    <div class="block-header">
+                        <ul class="block-options">
+                            <li>
+                                <button type="button"><i class="si si-settings"></i></button>
+                            </li>
+                        </ul>
+                        <h3 class="block-title">生成Qrcode</h3>
+                    </div>
+                    <div class="block-content block-content-narrow">
+                        <form class="form-horizontal push-10-t"  onsubmit="return false;">
+                            <div class="form-group">
+                                <div class="col-sm-9">
+                                    <div class="form-material">
+                                        <input class="form-control" type="text" id="text-data" name="text-data" placeholder="输入内容或网址...">
+                                        <label for="text-data">内容</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-12" >输出Qrcode</label>
+                                <div class="col-xs-12">
+                                        <img id="qrpng" src="http://momo.com/{$data}" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-9">
+                                    <button class="btn btn-sm btn-primary" id="Qrcode" type="submit">提交生成</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- END Static Labels -->
+            </div>
+        </div>
+        <!-- END Material Design -->
+    </div>
+    <!-- END Page Content -->
+</main>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        //发送测试
+        $('#Qrcode').click(function(){
+            var data=$('#text-data').val();
+            var ts = Date.parse(new Date())/1000;
+            $.ajax({
+                type:"post",
+                url:"{:url('admin/extend/qrcode')}",
+                dataType:"text",
+                data:{
+                    "data":data
+                },
+                success:function(data){
+                        layer.alert(data,{icon: 6});
+                        //$('#qrpng').html('data');
+                }
+            })
+        })
+    })
+
+</script>

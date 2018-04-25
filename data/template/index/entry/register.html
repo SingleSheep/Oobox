@@ -1,0 +1,199 @@
+{__NOLAYOUT__}<!DOCTYPE html>
+<html class="app bg-black" style="background-image: none;">
+<head>
+    <meta charset="utf-8" />
+    <!--[if IE 9]><html class="ie9"> <![Endif]-->
+
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![Endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <title>{if $siteTitle} {$siteTitle} {else /}OoBox{/if} | OoBox.org</title>
+    <meta name="keywords" content="关键词不屑" />
+    <meta name="description" content="抱歉，我不想写站点描述！" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="renderer" content="webkit">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+    <link rel="apple-touch-icon" href="__THEME__/assets/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="Flatkit">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" sizes="196x196" href="__THEME__/assets/images/logo.png">
+    <link rel="stylesheet" href="__THEME__/assets/bootstrap/dist/css/bootstrap.min.css?v=__VER__" type="text/css">
+    <link rel="stylesheet" href="__THEME__/assets/styles/icon.css?v=__VER__" type="text/css">
+    <link rel="stylesheet" href="__THEME__/css/login.css?v=__VER__" type="text/css" />
+    <script>
+        window.mbBase = {
+            headerFix: true,
+            sidebarFix: true,
+            top: true
+        };
+    </script>
+    <script type="text/javascript" src="__STATIC__/scripts/sea.js?v=__VER__"></script>
+    <script type="text/javascript">
+        seajs.config({
+            alias: {
+                "jq": "lib/jquery/1.11.2/jq",
+                "mz": "lib/modernizr/2.8.3/modernizr",
+                "ajaxup": "plug/ajaxupload/swfupload",
+                "ajaxupque": "plug/ajaxupload/swfupload.queue",
+                "ajaxupfile": "plug/ajaxupload/fileprogress",
+                "ajaxuphand": "plug/ajaxupload/handlers",
+                "hchart": "plug/highcharts/highcharts",
+                'mobanboxEditor': '/static/scripts/libs/jquery/mobanboxeditor/mb/js/mobanboxeditor.min'
+            }
+        });
+    </script>
+    <script src="/static/layer/layer.js?v=__VER__"></script>
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js?v=__VER__"></script>
+    <script src="//cdn.staticfile.org/tether/1.1.1/js/tether.min.js?v=__VER__"></script>
+    <script src="//cdn.staticfile.org/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js?v=__VER__"></script>
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js?v=__VER__"></script>
+    <script src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js?v=__VER__"></script>
+    <script src="//cdn.bootcss.com/jquery.pjax/1.9.6/jquery.pjax.min.js?v=__VER__"></script>
+    <script src="__THEME__/scripts/app.min.js?v=__VER__"></script>
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js?v=__VER__"></script>
+    <script src="//cdn.bootcss.com/respond.js?v=__VER__/1.4.2/respond.min.js?v=__VER__"></script>
+    <script src="__THEME__/scripts/ie/excanvas.js?v=__VER__"></script>
+    <![endif]--></head>
+<body id="page" data-spy="scroll" data-target=".navbar-nav" data-offset="80" class="appear-animate">
+<div id="app">
+    <div class="page">
+        <div class="login-page bg3 clearfix">
+            <div class="login col-sm-12">
+                <a class="btn btn-dark bg-gray pull-right white m2" href="{:url('index/entry/login')}">
+                    <i class="auth-switch icon-shuffle" style="vertical-align:0px;margin-right: 5px"></i>
+                    <span>登 录</span>
+                </a>
+                <h1 class="text-center">
+                    <a href="/">
+                        {include file="public/logo"}
+                    </a>
+                </h1>
+                <div class="uuu"></div>
+                <div class="ucreg">
+                    <form action="" method="post" id="regform" class="listform" autocomplete="off">
+                        <div class="formitem field-wrapper">
+                            <label for="username" class="field-addon prepend">
+                                <i class="hofund auth-user icon-user">
+                                </i>
+                            </label>
+                            <div class="iptbg">
+                                <input type="text" placeholder="登录网站的唯一标识，不可更改" class="formipt field block" id="username" name="username" autocomplete="off" />
+                            </div>
+                            <span class="loading"></span>
+                            <span class="errtxt"></span>
+                            <span class="suctxt"></span>
+                        </div>
+                        <div class="formitem field-wrapper">
+                            <label for="nickname" class="field-addon prepend">
+                                <i class="hofund auth-user icon-user-following">
+                                </i>
+                            </label>
+                            <div class="iptbg">
+                                <input type="text" placeholder="网站内作品展示署名" class="formipt" id="nickname" name="nickname" autocomplete="off" />
+                            </div>
+                            <span class="loading"></span>
+                            <span class="errtxt"></span>
+                            <span class="suctxt"></span>
+                        </div>
+                        <div class="formitem field-wrapper">
+                            <label for="email" class="field-addon prepend">
+                                <i class="hofund auth-user icon-envelope">
+                                </i>
+                            </label>
+                            <div class="iptbg">
+                                <input type="text" placeholder="请确保邮箱有效可用" class="formipt" id="usermail" name="email" autocomplete="off" />
+                            </div>
+                            <span class="errtxt"></span>
+                            <span class="suctxt"></span>
+                        </div>
+                        <div class="formitem field-wrapper">
+                            <div class="iptbg clearfix" style="position: relative;">
+                                <label for="userpwd" class="field-addon prepend">
+                                    <i class="hofund auth-password icon-lock-open">
+                                    </i>
+                                </label>
+                                <input type="password" placeholder="密码长度5到20位" class="formipt" id="userpwd" name="password" autocomplete="off" />
+                            </div>
+                            <span class="errtxt"></span>
+                            <span class="suctxt"></span>
+                        </div>
+                        <div class="formitem field-wrapper">
+                            <div class="iptbg clearfix" style="position: relative;">
+                                <label for="userpwd2" class="field-addon prepend">
+                                    <i class="hofund auth-password icon-lock-open">
+                                    </i>
+                                </label>
+                                <input type="password" placeholder="密码长度5到20位" class="formipt" id="userpwd2" name="password_confirm" autocomplete="off" />
+                            </div>
+                            <span class="errtxt"></span>
+                            <span class="suctxt"></span>
+                        </div>
+                        <div class="formitem field-wrapper">
+                            <div class="clearfix iptbg2">
+                                <div class="col-half">
+                                    <label for="verify" class="field-addon prepend">
+                                        <i class="hofund auth-password icon-paper-plane">
+                                        </i>
+                                    </label>
+                                    <input id="yzm" type="text" maxlength="5" class="formipt" placeholder="验证码" name="verify" id="verify" data-type="验证码" autocomplete="" />
+                                </div>
+                                <div class="col-half two">
+                                    <img class="yzmimg" alt="刷新验证码" src="{:url('index/index/verifyCode')}" id="verify_pic" />
+                                </div>
+                            </div>
+                            <span class="errtxt"></span>
+                            <span class="suctxt"></span>
+                        </div>
+                        <div class="formitem sp clr">
+                            <span class="ipttxt">&nbsp;</span>
+                            <label class="checkbox-inline i-checks fm-ms" for="radioval1">
+                                <input type="checkbox" id="radioval1" name="terms" value="1" checked="checked"><i></i> 同意<a href="#" target="_blank" title="网站条款">网站条款</a>
+                            </label>
+                            <span class="errtxt"></span>
+                            <span class="suctxt"></span>
+                        </div>
+                        <div class="formitem clr">
+                            <span class="ipttxt">&nbsp;</span>
+                            <button title="注册" class="regsubmit btntheme1 disable btn black text-white block" id="regbtn">注册
+                                <input type="hidden" name="add" value="yes" />
+                            </button>
+                            <span class="errtxt"></span>
+                            <span class="suctxt"></span>
+                        </div>
+                        <div class="formitem field-wrapper">
+                            <div class="iptbg">
+                                <input type="text" hidden="hidden" tabindex="1" class="formipt field block" name="errmsg" id="errmsg" >
+                            </div>
+                            <span class="errtxt"></span>
+                            <span class="suctxt"></span>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    seajs.use(["jq", "datavalid", "pageui"], function($, dvo, pui){
+        pui.checkboxInit($("#regform"), ".radioimg");
+        dvo.setAjaxUrl({
+            username: "{:url('index/Entry/checkName')}",
+            phonenum: "{:url('index/Entry/checkPhone')}",
+            email: "{:url('index/Entry/checkMail')}"
+        });
+        dvo.registerInit($("#regform"));
+        dvo.yzminit($("#verify_pic"), [$("#verify_pic"), $("#verify_btn")]);
+    });
+
+    window.onload = function()
+    {
+        document.getElementById("username").focus();
+    }
+
+</script>
+</body>
+</html>

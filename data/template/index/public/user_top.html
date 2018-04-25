@@ -1,0 +1,54 @@
+<div class="clearfix pos-rlt box-canvas" style="z-index: 99;background-image: url({if $userData.homeimage != ''}{$data_server}uploads/users/{$userData.user_id}/A_{$userData.homeimage}{else}__THEME__/images/ucenter_bg.jpg{/if})">
+    {include file="public/pagenav-user"/}
+    <div class="box p-b-lg m-b-0 no-shadow grey dk no-bg b-t">
+        <div class="clearfix pos-rlt p-t-lg b-t" style="z-index: 3">
+            <div class="p-x-md p-b-lg text-center">
+                <p>
+                    <a href="/user/{$userData.username}" class="hover">
+                        <span class="w-128 circle skin text-lg b-4x b-rgba-white b-a">
+                        <span class="price opacity" style="vertical-align: 2%;">{$userData.username}</span>
+                        </span>
+                    </a>
+                </p>
+                <a class="text-2x m-b-xs block">{$userData.username}</a>
+                <p class="block m-t-sm">
+                </p>
+                <p>
+                    <small class="h-1x text-grey">作者太懒了，没填签名呢</small>
+                </p>
+                <div class="m-b-md">
+                </div>
+                <div class="text-center">
+                    <a href="/User/edit/{$userData.username}" class="btn rounded btn-outline p-x-lg skin">
+                        编辑资料
+                    </a>
+                </div>
+            </div>
+            <div class="row no-gutter">
+                <div class="container">
+                    <div class="col-md-6 col-md-offset-3 text-center text-skin-hover">
+                        <a class="p-x inline b-r">
+                            <span class="price h3 block _800">0</span>
+                            <span>作品</span>
+                        </a>
+                        <a class="p-x inline">
+                            <span class="price h3 block _800">0</span>
+                            <span>销量</span>
+                        </a>
+                        <a class="p-x inline b-r">
+                            <span class="price h3 block _800">0</span>
+                            <span>粉丝</span>
+                        </a>
+                        <a class="p-x inline b-r">
+                            <span class="price h3 block _800">0</span>
+                            <span>关注</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="covers grey dk block">
+    </div>
+    <canvas class="cover block" width="1920" height="974"></canvas>
+</div>

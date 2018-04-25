@@ -1,0 +1,132 @@
+{include file="public::user-"/}
+<div class="clearfix white p-t-md" id="works">
+    <div class="container">
+        <div class="row m-t-xs">
+            <div class="col-xs-4 col-md-6">
+                <h3 class="m-t-none m-b-none phone-h2 m-t-xs">
+                    <i class="icon-daimaj text-skin"></i> Ta的作品
+                </h3>
+            </div>
+            <div class="col-xs-8 col-md-6 text-right">
+                <form action="" id="sortbyform" method="get">
+                    <input id="order-type" name="order" type="hidden" value="{if $Data.username == 'asc'}desc{else}asc{/if}" />
+                    <input type="hidden" id="sort_by" name="sort_by" />
+                    <div class="btn-group m-t-xs">
+
+                        <a href="javascript: void(0);" onclick="document.getElementById('sort_by').value='sales_count';document.getElementById('sortbyform').submit();"{if $Data.username = 'sales_count'} class="btn p-l-md p-r p-y-xs btn-outline skin" {else /} class="btn p-l-md p-r p-y-xs btn-outline b-skin text-skin"{/if} title="" data-toggle="tooltip" data-placement="bottom" data-original-title="按销量排序">
+                        销量
+                        <i class="icon-xjt1 m-l-xs"></i>
+                        </a>
+                        <a href="javascript: void(0);" onclick="document.getElementById('sort_by').value='cost';document.getElementById('sortbyform').submit();"{if $Data.username = 'cost'} class="btn p-l-md p-r p-y-xs btn-outline skin" {else} class="btn p-l-md p-r p-y-xs btn-outline b-skin text-skin"{/if} title="" data-toggle="tooltip" data-placement="bottom" data-original-title="按价格排序">
+                        价格
+                        <i class="icon-xjt1 m-l-xs"></i>
+                        </a>
+                        <a href="javascript: void(0);" onclick="document.getElementById('sort_by').value='published_at';document.getElementById('sortbyform').submit();"{if $Data.username = 'published_at'} class="btn p-l-md p-r p-y-xs btn-outline skin" {else /} class="btn p-l-md p-r p-y-xs btn-outline b-skin text-skin"{/if} data-toggle="tooltip" data-placement="bottom" data-original-title="按日期排序">
+                        日期
+                        <i class="icon-xjt1 m-l-xs"></i>
+                        </a>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{if $items }
+<div class="clearfix white">
+    <div class="container">
+        <div class="row m-t" id="moban-items">
+            <div class="col-xs-6 col-sm-6 col-md-4 moban-items">
+                <section class="box mb-col b-a pos-rlt image">
+                    <div class="browser clearfix">
+                  <span class="col-xs-3 col-sm-3">
+                    <i class="yuan"></i>
+                  </span>
+                        <span class="col-xs-6 col-sm-6">
+                    <em>
+                    </em>
+                  </span>
+                        <span class="col-xs-3 col-sm-3 three">
+                    <i class="icon-cross2"></i>
+                    <i class="icon-check_box_outline_blank"></i>
+                    <i class="icon-minus3"></i>
+                  </span>
+                    </div>
+                    <div class="box-body pic">
+                        <div class="img-container fx-img-rotate-l fx-opt-zoom-out">
+                            <img data-original="{$data_server}uploads/items/{$i.id}/{$i.thumbnail}" src="/mbthemes/assets/images/load.png" alt="{$i.name|escape}" class="img-responsive">
+                            <div class="img-options opw">
+                                <div class="img-options-content">
+                                    <a data-toggle="ajaxModal" data-src="/items/itempreview/{$i.id}" href="/items/preview/{$i.id}" class="btn btn-lg skin m-r-md hidden-xs-down" title="在线演示">
+                                        <i class="icon-eye"></i>
+                                    </a>
+                                    <a data-src="/items/itemsview/{$i.id}" href="/items/{$i.id}" target="_blank" class="btn btn-lg danger" title="查看详情">
+                                        <i class="icon-magnifier-add"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="/items/{$i.id}#comment" target="_blank" class="sale" title="评论">
+                                <i class="icon-bubbles m-r-xs"></i> {$i.comments|escape}
+                            </a>
+                        </div>
+                    </div>
+                    <a href="/items/{$i.id}" class="ribbon ribbon-skin price" title="销量">
+                        <i class="icon-handbag m-r-xs"></i> <span class="text-lg">{$i.sales|escape}</span>
+                    </a>
+                    <div class="mb-footer">
+                        <div class="text-muted m-b-xs">
+                            <a href="/items/{$i.id}" target="_blank" class="m-r"><i class="icon-clock m-r-xs"></i> 2017</a>
+                            <a>
+                            33333
+                            </a>
+                        </div>
+                        <div class="h-2xx"><a href="/items/{$i.id}" target="_blank" class="h5">{$i.name|escape}</a></div>
+                        <div class="clearfix m-t-xs">
+                            <div class="pull-left m-r-sm dropdown myDrop">
+                                <a data-toggle="ajaxUser" data-src="/user/portfolio/{$Data.username}" href="/user/{$Data.username}" class="pull-left myUserAjax">
+                        <span class="w-32 avatar">
+                          {if $Data.avatar != ''}
+                          <img src="{$data_server}uploads/users/{$i.user_id}/A_{$Data.avatar}" />
+                          {else}
+                          <span class="circle skin _100 w-32 fs-80">
+                            NP
+                          </span>
+                          {/if}
+                        </span>
+                                </a>
+                            </div>
+                            <a href="/user/{$Data.username}" target="_blank" class="pull-left m-t-sm clear">
+                                {$Data.nickname}
+                            </a>
+                            <div class="pull-right">
+                                <div class="h-32"><span class="price-rmb text-skin"><small>￥</small>0</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            {/foreach}
+        </div>
+    </div>
+</div>
+<div class="white p-b">
+
+</div>
+{else /}
+<div class="white p-y-lg clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 no-items text-center">
+                <div class="h-v-5 row-col">
+                    <div class="row-cell v-m text-center animated fadeIn">
+                        <h3 class="m-t text-muted"><i class="icon-sad h1 m-r" style="vertical-align: -7px"></i>还没有作品哦</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/if}

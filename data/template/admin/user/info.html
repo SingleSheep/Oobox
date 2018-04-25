@@ -1,0 +1,114 @@
+<!-- Main Container -->
+<main id="main-container">
+    <!-- Page Header -->
+    <div class="content bg-gray-lighter">
+        <div class="row items-push">
+            <div class="col-sm-7">
+                <h1 class="page-heading">
+                    权限管理
+                </h1>
+            </div>
+            <div class="col-sm-5 text-right hidden-xs">
+                <ol class="breadcrumb push-10-t">
+                    <li>权限管理</li>
+                    <li>用户管理</li>
+                    <li><a class="link-effect" href="">用户信息</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- END Page Header -->
+
+    <!-- Page Content -->
+    <div class="content content-narrow">
+
+        <div class="block">
+            <div class="block-header">
+                <ul class="block-options">
+                    <li>
+                        <button type="button"><i class="si si-settings"></i></button>
+                    </li>
+                </ul>
+                <h3 class="block-title">用户信息</h3>
+            </div>
+            <div class="block-content block-content-narrow">
+                <!-- jQuery Validation (.js-validation-bootstrap class is initialized in js/pages/base_forms_validation.js) -->
+                <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
+                <form class="js-validation-bootstrap form-horizontal" action="" method="post">
+                    <input hidden="hidden" name="userId" value="{$data.id}">
+
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="val-username">头像 <span class="text-danger">*</span></label>
+                        <div class="col-md-7">
+                            <div class="push-10-t push-30">
+                                <img class="img-avatar img-avatar96" src="__OENUI__/img/avatars/avatar4.jpg" alt="">
+                                <input type="file" id="example-file-input" name="avatar" style="margin-top: 20px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="val-username">用户名 <span class="text-danger">*</span></label>
+                        <div class="col-md-7">
+                            <input class="form-control" disabled="disabled" type="text" id="val-username" name="val-username" value="{$data.username}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="val-username">昵称 <span class="text-danger">*</span></label>
+                        <div class="col-md-7">
+                            <input class="form-control" type="text" id="val-nickname" name="val-nickname" value="{$data.nickname}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="val-email">Email <span class="text-danger">*</span></label>
+                        <div class="col-md-7">
+                            <input class="form-control" type="email" id="val-email" name="val-email" value="{$data.email}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="val-email">手机 <span class="text-danger">*</span></label>
+                        <div class="col-md-7">
+                            <input class="form-control" type="phone" id="val-phone" name="val-phone" value="{$data.phone}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="val-password">密码 <span class="text-danger">*</span></label>
+                        <div class="col-md-7">
+                            <input class="form-control" type="password" id="val-password" name="val-password" placeholder="用户密码，如不修改请留空">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="val-skill">所属用户组 <span class="text-danger">*</span></label>
+                        <div class="col-md-7">
+                            <select class="form-control" id="val-skill" name="groupId">
+                                <option value="">请选择用户组</option>
+                                {foreach name="auth" id="v"}
+                                <option value="{$v['id']}">{$v['title']}</option>
+                                {/foreach}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">启用状态<span class="text-danger">*</span></label>
+                        <div class="col-xs-6">
+                            <label class="css-input css-radio css-radio-success push-10-r">
+                                <input type="radio" name="isUse" value="1" checked=""><span></span> 启用
+                            </label>
+                            <label class="css-input css-radio css-radio-success">
+                                <input type="radio" name="isUse" value="0"><span></span> 禁用
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-8 col-md-offset-4">
+                            <button class="btn btn-sm btn-success" type="submit"><i class="fa fa-check"></i>修改</button>
+                            <button class="btn btn-sm btn-info" type="submit">取消</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Bootstrap Forms Validation -->
+    </div>
+    <!-- END Page Content -->
+</main>
+<!-- END Main Container -->

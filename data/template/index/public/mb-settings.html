@@ -1,0 +1,104 @@
+<!-- theme switcher -->
+<div class="switcher box box-color lt" id="changeskins">
+    <a href ui-toggle-class="active" target="#changeskins" class="white sw-btn">
+        <i class="icon-pifu"></i>
+    </a>
+    <div class="box-header">
+        <h2>更换皮肤
+            <button type="button" id="clearLocalStorage" class="btn btn-link p-a-0 m-a-0 icon-reload pull-right" title="还原默认设置"></button>
+        </h2>
+    </div>
+    <div class="box-divider"></div>
+    <div class="box-body">
+        <!--<p id="settingLayout" class="hidden-md-down">
+          <label class="md-switch m-r-sm">
+            <input type="checkbox" class="has-value" id="sidebar-option">
+            <i class="skin" style="margin-right: 36px;margin-top: -4px;"></i>
+            <span class="hidden-folded p-t-xs">打开边栏</span>
+          </label>
+          <label class="md-switch">
+            <input type="checkbox" class="has-value" id="body-option">
+            <i class="skin" style="margin-right: 36px;margin-top: -4px;"></i>
+            <span class="hidden-folded p-t-xs">盒子模式</span>
+          </label>
+        </p>-->
+        <p id="settingLayout" class="hidden-md-down">
+            <label class="md-check m-y-xs m-r-sm">
+                <input type="checkbox" id="sidebar-option">
+                <i class="skin"></i>
+                <span class="hidden-folded">打开边栏</span>
+            </label>
+            <label class="md-check m-y-xs">
+                <input type="checkbox" id="body-option">
+                <i class="skin"></i>
+                <span class="hidden-folded">盒子模式</span>
+            </label>
+        </p>
+
+        <p>选择颜色:</p>
+        <p id="skintoolsPrimary">
+            <label class="ui-check ui-check-color ui-check-md">
+                <input type="radio" name="color" value="primary" id="primary1">
+                <i class="primary"></i>
+            </label>
+            <label class="ui-check ui-check-color ui-check-md">
+                <input type="radio" name="color" value="accent">
+                <i class="accent"></i>
+            </label>
+            <label class="ui-check ui-check-color ui-check-md">
+                <input type="radio" name="color" value="warn">
+                <i class="warn"></i>
+            </label>
+            <label class="ui-check ui-check-color ui-check-md">
+                <input type="radio" name="color" value="success">
+                <i class="success"></i>
+            </label>
+            <label class="ui-check ui-check-color ui-check-md">
+                <input type="radio" name="color" value="info">
+                <i class="info"></i>
+            </label>
+            <label class="ui-check ui-check-color ui-check-md">
+                <input type="radio" name="color" value="blue">
+                <i class="blue"></i>
+            </label>
+            <label class="ui-check ui-check-color ui-check-md">
+                <input type="radio" name="color" value="warning">
+                <i class="warning"></i>
+            </label>
+            <label class="ui-check ui-check-color ui-check-md">
+                <input type="radio" name="color" value="danger">
+                <i class="danger"></i>
+            </label>
+        </p>
+        <p>风格选择:</p>
+        <div id="skinDark" class="text-u-c text-center _600 clearfix">
+            <a data-toggle="" href="#" class="p-x p-y-sm col-xs-6 light"><i class="icon-check2 m-r-xs h"></i>白色</a>
+            <a data-toggle="grey" href="#" class="p-x p-y-sm col-xs-6 grey"><span class="text-white"><i class="icon-check2 m-r-xs h"></i>黑色</span></a>
+            <a data-toggle="dark" href="#" class="p-x p-y-sm col-xs-6 dark"><span class="text-white"><i class="icon-check2 m-r-xs h"></i>黑蓝</span></a>
+            <a data-toggle="black" href="#" class="p-x p-y-sm col-xs-6 black"><span class="text-white"><i class="icon-check2 m-r-xs h"></i>黑紫</span></a>
+        </div>
+        <p class="m-t-md hidden-md-down">背景图片:</p>
+        <div id="co_bg_images_list" class="text-u-c row row-sm text-center hidden-md-down">
+            <a href="#" id="bgSkin1" data-toggle="bg_image_1" class="col-xs-6 m-b">
+                <img src="__THEME__/assets/images/skin/small/cgskin1.jpg" class="img-responsive" alt="">
+            </a>
+            <a href="#" id="bgSkin2" data-toggle="bg_image_2" class="col-xs-6 m-b">
+                <img src="__THEME__/assets/images/skin/small/cgskin5.jpg" class="img-responsive" alt="">
+            </a>
+            <a href="#" id="bgSkin3" data-toggle="bg_image_3" class="col-xs-6 m-b">
+                <img src="__THEME__/assets/images/skin/small/cgskin6.jpg" class="img-responsive" alt="">
+            </a>
+            <a href="#" id="bgSkin4" data-toggle="bg_image_4" class="col-xs-6 m-b">
+                <img src="__THEME__/assets/images/skin/small/cgskin4.jpg" class="img-responsive" alt="">
+            </a>
+            <a href="#" id="bgSkin5" data-toggle="bg_image_5" class="col-xs-6">
+                <img src="__THEME__/assets/images/skin/small/cgskin2.jpg" class="img-responsive" alt="">
+            </a>
+            <a href="#" id="bgSkin6" data-toggle="bg_image_6" class="col-xs-6">
+                <img src="__THEME__/assets/images/skin/small/cgskin3.jpg" class="img-responsive" alt="">
+            </a>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- theme switcher end / -->

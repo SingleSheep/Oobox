@@ -1,0 +1,65 @@
+<div class="navside white p-a no-borders box-bar">
+    <div class="nav-stacked h6 nav-active-skin">
+        <ul class="nav" id="ziper">
+      <span class="nav-header hidden-folded m-b-sm">
+        <span class="text text-muted">设置中心</span>
+      </span>
+
+            <li>
+                <a href="/User/edit/{$userData.username}" class="nav-link {if $Request.action == 'changeInfo'}active{/if}">
+                    {if $Request.action == 'changeInfo'}<span class="arrow right b-skin"></span>{/if}
+                    <span class="nav-icon p-l p-t-sm m-t-xs">
+            <i class="icon-docs h5"></i>
+          </span>
+                    <span class="nav-text p-y">个人资料</span>
+                </a>
+            </li>
+            <li>
+                <a href="/User/pwd/{$userData.username}" class="nav-link {if $Request.action == 'changePwd'}active{/if}">
+                    {if $Request.action == 'changePwd'}<span class="arrow right b-skin"></span>{/if}
+                    <span class="nav-icon p-l p-t-sm m-t-xs">
+            <i class="icon-lock h5"></i>
+          </span>
+                    <span class="nav-text p-y">修改密码</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/User/avatar/{$userData.username}" class="nav-link {if $Request.action == 'changeAvatar'}active{/if}">
+                    {if $Request.action == 'changeAvatar'}<span class="arrow right b-skin"></span>{/if}
+                    <span class="nav-icon p-l p-t-sm m-t-xs">
+            <i class="icon-picture h5"></i>
+          </span>
+                    <span class="nav-text p-y">头像和主页图片</span>
+                </a>
+            </li>
+            <li>
+                <a href="/edit_sj" class="nav-link {if $Request.action == 'edit_sj'}active{/if}">
+                    {if $Request.action == 'edit_sj'}<span class="arrow right b-skin"></span>{/if}
+                    <span class="nav-icon p-l p-t-sm m-t-xs">
+            <i class="icon-ghost h5"></i>
+          </span>
+                    <span class="nav-text p-y">社交应用</span>
+                </a>
+            </li>
+            <li>
+                <a href="/edit_zj" class="nav-link {if $Request.action == 'edit_zj'}active{/if}">
+                    {if $Request.action == 'edit_zj'}<span class="arrow right b-skin"></span>{/if}
+                    <span class="nav-icon p-l p-t-sm m-t-xs">
+            <i class="icon-badge h5"></i>
+          </span>
+                    <span class="nav-text p-y">自荐作品</span>
+                </a>
+            </li>
+            <li>
+                <a href="/edit_xk" class="nav-link {if $Request.action == 'edit_xk'}active{/if}">
+                    {if $Request.action == 'edit_xk'}<span class="arrow right b-skin"></span>{/if}
+                    <span class="nav-icon p-l p-t-sm m-t-xs">
+            <i class="icon-flag h5"></i>
+          </span>
+                    <span class="nav-text p-y">作品许可</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

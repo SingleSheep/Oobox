@@ -1,0 +1,181 @@
+{extend name="public:main" /}
+{block name="title"}管理员列表{/block}
+{block name="main"}
+<div class="wraper container-fluid">
+    <div class="page-title">
+        <h3 class="title">权限管理</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">管理员列表</h3>
+                </div>
+                <div class="panel-body">
+                    <button type="button" data-toggle="modal" data-target="#add" class="btn btn-info m-b-5">新增管理员</button>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>头像</th>
+                                        <th>用户名</th>
+                                        <th>昵称</th>
+                                        <th>邮箱</th>
+                                        <th>电话</th>
+                                        <th>最后登录IP</th>
+                                        <th>最后登录时间</th>
+                                        <th>状态</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {foreach name="data" id="v"}
+                                    <tr>
+                                        <td>{$v['id']}</td>
+                                        <td>{$v['avatar']}</td>
+                                        <td>{$v['username']}</td>
+                                        <td>{$v['nickname']}</td>
+                                        <td>{$v['email']}</td>
+                                        <td>{$v['phone']}</td>
+                                        <td>{$v['last_login_ip']}</td>
+                                        <td>{$v['last_login_time']|date="Y-m-d H:i",###}</td>
+                                        <td>
+                                            {eq name="$v['status']" value="1"}
+                                            <span class="btn btn-rounded btn-space btn-success">正常</span>
+                                            {else/}
+                                            <span class="btn btn-rounded btn-space btn-warning">禁止</span>
+                                            {/eq}
+                                        </td>
+                                        <td >
+                                            <button type="button" AdminId="{$v['id']}" AdminPhone="{$v['phone']}" AdminName="{$v['title']}" onclick="editUser(this)" class="btn btn-info m-b-5">修改</button>
+                                            <button type="button" onclick="delUser(this,'{$v[\'id\']}')" class="btn btn-danger m-b-5">删除</button>
+                                        </td>
+                                    </tr>
+                                    {/foreach}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End row -->
+
+</div>
+<!-- Page Content Ends -->
+<!-- ================== -->
+<!--添加用户-->
+<div class="modal fade colored-header colored-header-primary" id="add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog custom-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-hidden="true" class="close md-close"><span class="mdi mdi-close"></span></button>
+                <h3 class="modal-title">添加权限</h3>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>权限名称</label>
+                    <input type="text" id="ruleTitle" placeholder="权限名称" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>权限地址</label>
+                    <input type="text" id="ruleUrl" placeholder="Admin/index/index" class="form-control">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-default md-close">取消</button>
+                <button type="button" onclick="addRule()" data-dismiss="modal" class="btn btn-primary md-close">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 修改用户 -->
+<div class="modal fade colored-header colored-header-primary" id="edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog custom-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" data-dismiss="modal" aria-hidden="true" class="close md-close"><span class="mdi mdi-close"></span></button>
+                <h3 class="modal-title">修改用户组</h3>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="id" name="id">
+                <div class="form-group">
+                    <label>用户组名称</label>
+                    <input id="Title" name="title" class="form-control" type="text">
+                </div>
+                <div class="form-group">
+                    <label>用户组名称</label>
+                    <input id="Url" name="url" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-default md-close">取消</button>
+                <button type="button" onclick="addUser()" data-dismiss="modal" class="btn btn-primary md-close">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{/block}
+{block name="script"}
+
+<script type="text/javascript">
+    //添加新用户
+    function addUser() {
+        var title = $("#UserTitle").val();
+        $.ajax({
+            type:"post",
+            url:"{:url('admin/user/add_user')}",
+            dataType:"json",
+            data:{
+                "title":title
+            },
+            success:function(data){
+                if(data.code == 1){
+                    layer.msg(data.msg, {icon: 6},{time:2000});
+                    location.reload();//刷新页面
+                }else {
+                    layer.alert(data.msg, {icon: 5},{time:2000});
+                    location.reload();//刷新页面
+                }
+
+            }
+        })
+    }
+
+    //删除
+    function delUser(obj,id) {
+        layer.confirm('是否删除该用户？', {
+            btn: ['确定','算了'] //按钮
+        }, function() {
+            $.ajax({
+                type:"post",
+                url:"{:url('admin/user/delete_user')}",
+                dataType:"json",
+                data:{
+                    "id":id
+                },
+                success:function(data){
+                    if(data.code == 1){
+                        layer.msg(data.msg, {icon: 6},{time:2000});
+                        location.reload();//刷新页面
+                    }else {
+                        layer.msg(data.msg, {icon: 5},{time:2000});
+                        location.reload();//刷新页面
+                    }
+
+                }
+            })
+        })
+    }
+    function editUser(obj) {
+
+    }
+
+</script>
+{/block}

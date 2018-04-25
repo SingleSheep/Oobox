@@ -1,0 +1,82 @@
+<!-- Main Container -->
+<main id="main-container">
+    <!-- Page Header -->
+    <div class="content bg-gray-lighter">
+        <div class="row items-push">
+            <div class="col-sm-7">
+                <h1 class="page-heading">
+                    权限管理
+                </h1>
+            </div>
+            <div class="col-sm-5 text-right hidden-xs">
+                <ol class="breadcrumb push-10-t">
+                    <li>权限管理</li>
+                    <li><a class="link-effect" href="">用户列表</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- END Page Header -->
+
+    <!-- Page Content -->
+    <div class="content">
+        <!-- Full Table -->
+        <div class="block">
+            <div class="block-header">
+                <h3 class="block-title">用户列表</h3>
+            </div>
+            <div class="block-content">
+                <div class="table-responsive">
+                    <table class="table table-hover table-striped table-vcenter">
+                        <thead>
+                        <tr>
+                            <th class="text-center" style="width: 5%;"><i class="fa fa-circle-o-notch"></i></th>
+                            <th style="width: 10%;">头像</th>
+                            <th style="width: 10%;">用户名</th>
+                            <th style="width: 10%;">昵称</th>
+                            <th style="width: 10%;">用户角色</th>
+                            <th style="width: 10%;">邮箱</th>
+                            <th style="width: 10%;">手机</th>
+                            <th style="width: 10%;">上次登录IP</th>
+                            <th style="width: 10%;">上次登录时间</th>
+                            <th style="width: 5%;">状态</th>
+                            <th class="text-center" style="width: 10%;">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {foreach name="data" id="v"}
+                        <tr>
+                            <td class="text-center">{$v['uid']}</td>
+                            <td class="">{$v['avatar']}</td>
+                            <td class="">{$v['username']}</td>
+                            <td>{$v['nickname']}</td>
+                            <td>{$v['title']}</td>
+                            <td>{$v['email']}</td>
+                            <td>{$v['phone']}</td>
+                            <td>{$v['last_login_ip']}</td>
+                            <td>{$v['last_login_time']}</td>
+                            <td>
+                                {eq name="$v['status']" value="1"}
+                                <span class="label label-success">正常</span>
+                                {else/}
+                                <span class="label label-danger">禁止</span>
+                                {/eq}
+                            </td>
+                            <td class="text-center">
+                                <div class="btn-group">
+                                    <a href="{:url('admin/user/info',array('uid'=>$v['uid']))}" class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="编辑"><i class="fa fa-pencil"></i></a>
+                                    <a class="btn btn-xs btn-danger" type="button" data-toggle="tooltip" title="删除"><i class="fa fa-times"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        {/foreach}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- END Full Table -->
+    </div>
+    <!-- END Page Content -->
+</main>
+<!-- END Main Container -->

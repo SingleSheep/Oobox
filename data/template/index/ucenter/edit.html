@@ -1,0 +1,73 @@
+
+    <div class="clearfix white b-t">
+            <div class="container">
+                <div class="row-col">
+                    <div class="col-sm w-xl box w-auto-xs b-r b-l right-bar">
+                        {include file="public::edit_nav" /}
+                    </div>
+                    <div class="col-sm" id="taber">
+                        <div class="box pos-rlt b-r m-b-0">
+                            <div class="p-a">
+                                <div class="box-body" id="profile">
+                                    <form role="form" method="post">
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <label class="h6 p-b-xs" for="nickname">昵称</label>
+                                                <input id="nickname" class="form-control" name="nickname" required="true" type="text" value="{$userData.nickName}" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="h6 p-b-xs" for="invoice_to">公司名称</label>
+                                                <input id="invoice_to" class="form-control" name="firmname" type="text" value="" />
+                                                <small class="text-muted block m-t-xs">没有请留空</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="h6 p-b-xs" for="lives_in">所在城市</label>
+                                                <input id="lives_in" class="form-control" name="live_city" type="text" value="" />
+                                                <small class="text-muted block m-t-xs">比如：北京</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="h6 p-b-xs" for="email">邮件地址</label>
+                                                <input id="email" class="form-control" name="email" value="{$userData.email}" type="text">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="h6 p-b-xs" for="country_id">国家或地区</label>
+                                                <select class="form-control" name="country_id">
+                                                    <option value="">不显示我的国家</option>
+                                                    <option value="">中国</option>
+                                                </select>
+                                                <small class="text-muted block m-t-xs">选择国家或地区后将显示相应的旗帜徽章</small>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="h6 p-b-xs" for="address">详细地址</label>
+                                                <input id="address" class="form-control" name="address" value="" type="text">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="md-check" for="available_for_freelance">
+                                                    <input id="available_for_freelance" name="custom_made" type="checkbox" value="true" />
+                                                    <i class="skin"></i>
+                                                    我是威客
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="h6 p-b-xs" for="by_line">个性签名</label>
+                                                <input id="by_line" class="form-control" name="profile_title" type="text" value="" />
+                                            </div>
+                                            <div class="form-group m-t-md m-b-0">
+                                                <input type="hidden" name="personal_edit" value="yes" />
+                                                <button id="personal_info_submit_button" class="btn skin b-skin" type="submit">保存</button>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <style>
+        .right-bar.fix .box-bar {
+            top: 0;
+            width: 278px;
+        }
+    </style>

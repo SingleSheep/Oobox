@@ -1,0 +1,115 @@
+<!-- Main Container -->
+<main id="main-container">
+    <!-- Page Header -->
+    <div class="content bg-gray-lighter">
+        <div class="row items-push">
+            <div class="col-sm-7">
+                <h1 class="page-heading">
+                    Text Editors <small>Text editing at its finest. Powered by Summernote and CKeditor.</small>
+                </h1>
+            </div>
+            <div class="col-sm-5 text-right hidden-xs">
+                <ol class="breadcrumb push-10-t">
+                    <li>Forms</li>
+                    <li><a class="link-effect" href="">Text Editors</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- END Page Header -->
+
+    <!-- Page Content -->
+    <div class="content">
+        <!-- Summernote (.js-summernote + .js-summernote-air classes are initialized in App() -> uiHelperSummernote()) -->
+        <!-- For more info and examples you can check out http://summernote.org/ -->
+        <div class="block">
+            <div class="block-header">
+                <ul class="block-options">
+                    <li>
+                        <button type="button"><i class="si si-settings"></i></button>
+                    </li>
+                </ul>
+                <h3 class="block-title">文章编辑</h3>
+            </div>
+            <div class="block-content block-content-narrow">
+                <form class="form-horizontal push-10-t" action="base_forms_elements_modern.html" method="post" onsubmit="return false;">
+
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="material-text" name="material-text" value="{$data.title}">
+                                    <label for="material-text">文章标题<span class="text-danger">*</span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="material-email" name="material-email" value="{$data.author}">
+                                    <label for="material-email">作者<span class="text-danger">*</span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="material-gridf" name="material-gridf" placeholder="col-xs-6">
+                                    <label for="material-gridf">来源<span class="text-danger">*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-material">
+                                    <input class="form-control" type="text" id="material-gridl" name="material-gridl" placeholder="col-xs-6">
+                                    <label for="material-gridl">发布时间</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <div class="form-material">
+                                    <input class="js-tags-input form-control" type="text" id="example-tags2" name="example-tags2" value="{$data.keyword}">
+                                    <label for="example-tags2">标签</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <div class="form-material">
+                                    <textarea class="form-control" id="material-textarea-small" name="material-textarea-small" rows="3" placeholder="请编辑文章摘要">{$data.abstract}</textarea>
+                                    <label for="material-textarea-small">文章摘要<span class="text-danger">*</span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <div class="form-material">
+                                    <select class="form-control" id="material-select" name="material-select" size="1">
+                                        <option>请选择文章所属分类</option>
+                                        <option value="1">Option #1</option>
+                                        <option value="2">Option #2</option>
+                                        <option value="3">Option #3</option>
+                                    </select>
+                                    <label for="material-select">Please Select</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Summernote Container -->
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                            <div class="js-summernote">{$data.content}</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-9">
+                                <button class="btn btn-sm btn-info" type="submit">修改文章</button>
+                            </div>
+                        </div>
+                    </form>
+
+            </div>
+        </div>
+        <!-- END Summernote -->
+    </div>
+    <!-- END Page Content -->
+</main>
+<!-- END Main Container -->

@@ -1,0 +1,56 @@
+        <!-- Page Content Start  -->
+        <div class="wraper container-fluid">
+            <div class="page-title">
+                <h3 class="title">会员管理</h3>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">会员列表</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>头像</th>
+                                                <th>OpenId</th>
+                                                <th>姓名</th>
+                                                <th>昵称</th>
+                                                <th>手机</th>
+                                                <th>地址</th>
+                                                <th></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {foreach name="data" id="v"}
+                                            <tr>
+                                                <td>{$v['id']}</td>
+                                                <td><img style="height: 48px;" src="{$v['avatarUrl']}"></td>
+                                                <td>{$v['openId']}</td>
+                                                <td>{$v['name']}</td>
+                                                <td>{$v['nickName']}</td>
+                                                <td>{$v['phone']}</td>
+                                                <td>{$v['province']}{$v['city']}</td>
+                                                <td>
+                                                    <button type="button" class="btn btn-info m-b-5">修改</button>
+                                                    <button type="button" class="btn btn-danger m-b-5">删除</button>
+                                                </td>
+                                            </tr>
+                                            {/foreach}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- End row -->
+
+        </div>
+        <!-- Page Content Ends -->

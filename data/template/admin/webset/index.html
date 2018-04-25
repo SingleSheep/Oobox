@@ -1,0 +1,161 @@
+    <!-- Main Container -->
+    <main id="main-container">
+        <!-- Page Header -->
+        <div class="content bg-gray-lighter">
+            <div class="row items-push">
+                <div class="col-sm-7">
+                    <h1 class="page-heading">
+                        系统配置
+                    </h1>
+                </div>
+                <div class="col-sm-5 text-right hidden-xs">
+                    <ol class="breadcrumb push-10-t">
+                        <li>系统设置</li>
+                        <li><a class="link-effect" href="">基本配置</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <!-- END Page Header -->
+
+        <!-- Page Content -->
+        <div class="content">
+            <!-- Block Tabs Alternative Style -->
+            <div class="block">
+                <ul class="nav nav-tabs nav-tabs-alt" data-toggle="tabs">
+                    <li class="active">
+                        <a href="#btabs-alt-static-home">站点配置</a>
+                    </li>
+                    <li>
+                        <a href="#btabs-alt-static-profile">SMTP服务器</a>
+                    </li>
+                    <li class="pull-right">
+                        <a href="#btabs-alt-static-settings" data-toggle="tooltip" title="Settings"><i class="si si-settings"></i></a>
+                    </li>
+                </ul>
+                <div class="block-content tab-content">
+                    <div class="tab-pane active" id="btabs-alt-static-home">
+                        <h4 class="font-w300 push-15">站点配置</h4>
+                        <div class="block-content block-content-narrow">
+                            <form class="form-horizontal push-10-t" action="base_forms_elements_modern.html" method="post" onsubmit="return false;">
+                                <div class="form-group">
+                                    <div class="col-sm-9">
+                                        <div class="form-material floating">
+                                            <input class="form-control" type="text" value="{$webset.SiteName}" id="material-text2" name="material-text2">
+                                            <label for="material-text2">网站名称</label>
+                                            <div class="help-block text-right">This is a help block!</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-9">
+                                        <div class="form-material floating">
+                                            <input class="form-control" type="text" value="{$webset.SiteTitle}" id="material-password2" name="material-password2">
+                                            <label for="material-password2">网站标题</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-9">
+                                        <div class="form-material floating">
+                                            <input class="form-control" type="text" value="{$webset.SiteIcp}" id="material-icpNum" name="material-password2">
+                                            <label for="material-password2">ICP备案号</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-9">
+                                        <div class="form-material floating">
+                                            <input class="form-control" type="email" value="{$webset.SiteEmail}" id="material-email2" name="material-email2">
+                                            <label for="material-email2">管理员邮箱</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-9">
+                                        <div class="form-material floating">
+                                            <textarea class="form-control" id="material-textarea-small2" name="material-textarea-small2" rows="3">{$webset.SiteCopyRight}</textarea>
+                                            <label for="material-textarea-small2">版权所有</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-9">
+                                        <button class="btn btn-minw btn-success" type="submit"><i class="fa fa-check"></i> 保存</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="btabs-alt-static-profile">
+                        <h4 class="font-w300 push-15">SMTP 邮件服务</h4>
+                        <div class="block-content block-content-narrow">
+                            <form class="form-horizontal push-10-t push-10" action="base_forms_premade.html" method="post" onsubmit="return false;">
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <div class="form-material floating">
+                                            <input class="form-control" type="text" value="{$smtp.EMAIL_SMTP}" id="register6-firstname" name="register6-firstname">
+                                            <label for="register6-firstname">服务地址</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="form-material floating">
+                                            <input class="form-control" type="text" value="{$smtp.EMAIL_PORT}" id="register6-lastname" name="register6-lastname">
+                                            <label for="register6-lastname">端口</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="form-material input-group floating">
+                                            <input class="form-control" type="text" value="{$smtp.EMAIL_USERNAME}" id="register6-account" name="register6-account">
+                                            <label for="register6-account">服务邮箱</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="form-material input-group floating">
+                                            <input class="form-control" type="text" value="{$smtp.EMAIL_FROM_NAME}" id="register6-email" name="register6-email">
+                                            <label for="register6-email">发件人</label>
+                                            <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="form-material input-group floating">
+                                            <input class="form-control" type="password" value="{$smtp.EMAIL_PASSWORD}" id="register6-password" name="register6-password">
+                                            <label for="register6-password">密码</label>
+                                            <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="form-material input-group floating">
+                                            <input class="form-control" type="password" value="{$smtp.EMAIL_PASSWORD}" id="register6-password2" name="register6-password2">
+                                            <label for="register6-password2">重复密码</label>
+                                            <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <button class="btn btn-minw btn-success" type="submit"><i class="fa fa-check"></i> 保存</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="btabs-alt-static-settings">
+                        <h4 class="font-w300 push-15">Settings Tab</h4>
+                        <p>...</p>
+                    </div>
+                </div>
+            </div>
+            <!-- END Block Tabs Alternative Style -->
+        </div>
+        <!-- END Page Content -->
+    </main>
+    <!-- END Main Container -->

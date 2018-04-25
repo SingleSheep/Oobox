@@ -1,0 +1,49 @@
+    <div class="clearfix white b-t">
+        <div class="container">
+            <div class="row-col">
+                <div class="col-sm w-xl box w-auto-xs b-r b-l right-bar">
+                    {include file="public::edit_nav" /}
+                </div>
+                <div class="col-sm" id="taber">
+                    <div class="box pos-rlt b-r m-b-0">
+                        <div class="p-a">
+                            <div class="box-body" id="profile">
+                                <form role="form" class="horizontal-form disable-on-submit" action="" method="post" enctype="multipart/form-data">
+                                    <fieldset>
+                                        <div class="form-group">
+                                            <label class="h5 p-b-xs" for="profile_image">你的头像</label>
+                                            <div class="inputs p-y">
+                                                {if $userData.avatarUrl != ''}
+                                                <img alt="{$userData.username}" src="{$data_server}/uploads/users/{$userData.user_id}/A_{$userData.avatar}" class="w-128 img-circle m-r" />
+                                                <img alt="{$userData.username}" src="{$data_server}/uploads/users/{$userData.user_id}/A_{$userData.avatar}" class="w-64 img-circle m-r" />
+                                                <img alt="{$userData.username}" src="{$data_server}/uploads/users/{$userData.user_id}/A_{$userData.avatar}" class="w-32 img-circle" />
+                                                {/if}
+                                                <input type="file" id="profile_image" name="profile_image" class="form-control m-y-sm">
+                                                <small class="block text-muted">JPEG 90x90px</small>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="h5 p-b" for="profile_image">主页图片</label>
+                                            <div class="inputs">
+                                                {if $userData.homeimage != ''}
+                                                <img alt="{$userData.username}" src="{$data_server}/uploads/users/{$userData.user_id}/A_{$userData.homeimage}" class="w-full" />
+                                                {/if}
+                                                <input type="file" id="homepage_image" name="homepage_image" class="form-control">
+                                                <small class="block text-muted m-t">JPEG 590x242</small>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group m-t-md m-b-0">
+                                            <input type="hidden" name="change_avatar_image" value="yes" />
+                                            <button class="btn skin b-skin" type="submit">保存</button>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>

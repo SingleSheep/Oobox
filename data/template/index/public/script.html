@@ -1,0 +1,57 @@
+<script type="text/javascript">
+
+    $(function() {
+        if ($.support.pjax) {
+            $.pjax.defaults.maxCacheLength = 0;
+            var container = $('#view');
+            $(document).on('click', '#pagination li a,.small-nav a,a[data-pjax], [data-pjax] a, a.navbar-brand', function(event) {
+                $.pjax.click(event, {
+                    container: container,
+                    timeout: 6000,
+                    fragment: '#view',
+                    show: 'fade',
+                    cache: false,
+                    storage: true,
+                    scrollTo: false
+                });
+            });
+
+            $(document).on('submit','form#search,button.searchbtn',function(event) {
+                $.pjax.submit(event,{
+                    container: container,
+                    timeout: 6000,
+                    fragment: '#view',
+                    show: 'fade',
+                    cache: false,
+                    storage: true,
+                    scrollTo: false
+                });
+            });
+
+            $(document).on('pjax:start', function() {
+                $( document ).trigger( "pjaxStart" );
+            });
+            // fix js
+            $(document).on('pjax:end', function(event) {
+                $( document ).trigger( "pjaxEnd" );
+                $("img.img-responsive").lazyload({
+                    effect : "fadeIn",
+                    threshold : 200
+                });
+            });
+        }
+    });
+
+</script>
+<script type="text/javascript">
+
+    $(function() {
+        $("img.img-responsive").lazyload({
+            effect : "fadeIn",
+            threshold : 200
+        });
+    });
+
+</script>
+</body>
+</html>

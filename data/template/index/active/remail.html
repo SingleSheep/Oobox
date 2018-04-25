@@ -1,0 +1,45 @@
+{__NOLAYOUT__}
+{include file="public::header"/}
+<div class="center-block w-xxl w-auto-xs p-y-md">
+    <div class="navbar" style="min-height: 3.5rem;">
+        <div class="pull-center">
+            <a href="/" class="navbar-brand">
+                {include file="public/logo"/}
+            </a>
+        </div>
+    </div>
+    <div class="p-a-md box-color r box-shadow-z1 text-color m-a">
+        <form action="" method="post" id="remail-form" class="listform" autocomplete="off">
+            <div class="md-form-group float-label">
+                <input type="text" placeholder="" class="md-input" name="email" value="{$email}" id="email" data-type="电子邮件" autocomplete="off" />
+                <label>
+                    <i class="hofund auth-user icon-envelope"></i>
+                    注册邮箱</label>
+            </div>
+            <span class="ipttxt">&nbsp;</span>
+            <input type="hidden" name="send" value="yes" />
+            <a title="激活用户" class="regsubmit btn primary btn-block p-x-md submit" id="resendbtn">激活用户<input type="hidden" name="add" value="yes" /></a>
+        </form>
+    </div>
+    <div class="p-v-lg text-center">
+        <div class="m-b"><a href="{:url('index/entry/reset_password')}" title="忘记密码？" class="text-primary _600">忘记密码?</a></div>
+        <div>已经有账户? <a href="{:url('index/entry/login')}" class="text-primary _600">登录</a></div>
+    </div>
+</div>
+</div>
+<script type="text/javascript">
+    //重新发送给
+    seajs.use(["jq", "modules/mails"], function($, mails){
+        mails.btninit({
+            resetbtn: $("#resendbtn"),
+            setmailbtn: $("#setmailbtn"),
+            mailipt: $("#usermail"),
+            maillink: $("#gotomail"),
+            purl: "{:url('user/active/remail')}",
+            uid: "<?php echo($uid);?>'"
+        });
+    });
+
+</script>
+</body>
+</html> 

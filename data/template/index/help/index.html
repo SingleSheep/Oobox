@@ -1,0 +1,139 @@
+
+        <div class="app-body" id="view">
+            <!-- ############ PAGE START-->
+            <div class="white b-t">
+                <div class="container">
+
+                    <div class="row-col">
+                        <div class="col-sm w-lg box w-auto-xs b-r b-l">
+                            {include file="public/help_nav"/}
+                        </div>
+                        <div class="col-sm b-r">
+                            <div ui-view class="padding pos-rlt">
+                                <div>
+                                    <h3 class="m-t-none m-b h2-xs">帮助中心</h3>
+                                    <p>
+                                        <a href="/contacts/" class="btn btn-sm btn-outline b-skin text-skin">
+                                            技术支持
+                                        </a>
+                                    </p>
+                                    <div class="list m-t-md">
+
+                                        <div class="list-item">
+                                            <div class="list-body">
+                                                <h5>如何设置文章格式？</h5>
+                                                <div class="m-t-sm text-ellipsis text-muted">
+                                                    你可以使用HTML标签编辑你在{$Request.domain}的评论和文章。
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="list-item">
+                                            <div class="list-body p-t-sm">
+                                                <h5>强调文本</h5>
+                                                <div class="m-t-sm text-ellipsis text-muted">
+                                                    <p>用&lt;strong&gt;和&lt;/strong&gt;或&lt;em&gt;和&lt;/em&gt;包裹强调文本，比如:</p>
+                                                    <p><strong>粗体文本</strong> &lt;strong&gt;粗体文本&lt;/strong&gt;</p>
+                                                    <p><em>斜体文本</em> &lt;em&gt;斜体文本&lt;/em&gt;</p>
+                                                    <p>链接格式为&lt;a href="URL"&gt;链接显示文本&lt;/a&gt;，比如你要把某文本链接到{$Request.domain}，你可以这样写:</p>
+                                                    <p>&lt;a href="{$Request.domain}/"&gt;链接到{$Request.domain}&lt;/a&gt;</p>
+                                                    <p><a href="{$Request.domain}/" target="_blank">链接到{$Request.domain}</a></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-item">
+                                            <div class="list-body p-t">
+                                                <h5>图像</h5>
+                                                <div class="m-t-sm text-ellipsis text-muted">
+                                                    <p>首先复制图像的链接地址，然后把链接地址写到URL的位置，&lt;img src="URL"&gt;，</p>
+                                                    <p>比如我们网站LOGO的地址为</p>
+                                                    <a href="{$Request.domain}/static/mbthemes/assets/images/logo-full.svg" target="_blank">{$Request.domain}/static/mbthemes/assets/images/logo-full.svg</a>
+                                                    <p>于是你可以这样书写:</p>
+                                                    <p>&lt;img src="{$Request.domain}/static/mbthemes/assets/images/logo-full.svg"&gt;</p>
+                                                    <p><img src="{$Request.domain}/static/mbthemes/assets/images/logo-full.svg" alt="mobanbox"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-item">
+                                            <div class="list-body">
+                                                <h5>引用</h5>
+                                                <div class="m-t-sm text-ellipsis text-muted">
+                                                    &lt;blockquote&gt;引用文字&lt;/blockquote&gt;。
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-item">
+                                            <div class="list-body">
+                                                <h5>创建列表</h5>
+                                                <div class="m-t-sm text-ellipsis text-muted">
+                                                    <p>格式如下：</p>
+                                                    <p><strong>不带序号列表</strong> &lt;ul&gt; &lt;li&gt;列表条目&lt;/li&gt; &lt;li&gt;列表条目&lt;/li&gt; &lt;/ul&gt;</p>
+                                                    <ul>
+                                                        <li>列表条目</li>
+                                                        <li>列表条目</li>
+                                                    </ul>
+                                                    <strong>带序号列表</strong> &lt;ol&gt; &lt;li&gt;列表条目&lt;/li&gt; &lt;li&gt;列表条目&lt;/li&gt; &lt;/ol&gt; <ol>
+                                                    <li>列表条目</li>
+                                                    <li>列表条目</li>
+                                                </ol>
+                                                    <a href="http://www.w3schools.com/Html/html_lists.asp" class="btn white btn-sm m-r" target="_blank">更多</a>关于如何编辑列表的详情
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-item">
+                                            <div class="list-body">
+                                                <h5>标题</h5>
+                                                <div class="m-t-sm text-ellipsis text-muted">
+                                                    格式如下:
+                                                    <h5>一级标题</h5>
+                                                    &lt;h3&gt;一级标题&lt;/h3&gt;
+                                                    <h6>二级标题</h6>
+                                                    <p>&lt;h4&gt;二级标题&lt;/h4&gt;</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="list-item">
+                                            <div class="list-body">
+                                                <h5>代码</h5>
+                                                <div class="m-t-sm text-ellipsis text-muted">
+                                                    简单代码请使用&lt;code&gt;和&lt;/code&gt;，大量代码请使用&lt;pre&gt;和&lt;/pre&gt;换行，比如:<code>&lt;code&gt;小段多行代码&lt;/code&gt;</code>
+<pre class="m-t">
+&lt;pre&gt;
+blockquote
+border-left: 1px solid
+border-color= !div_border
+padding-left: 20px
+margin-bottom: 10px
+font-style: italic
+font-family: Arial, sans-serif
+color: #777777
+code, pre
+font-family: Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", </span><br><span style="font-size: small;">    monospace
+color: #333333
+&lt;/pre&gt;
+</pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-item">
+                                            <div class="list-body">
+                                                <h5>普通文本换行</h5>
+                                                <div class="m-t-sm text-ellipsis text-muted">
+                                                    普通文本换行请使用&lt;br /&gt;标签。
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- ############ PAGE END-->
+        </div>

@@ -1,0 +1,111 @@
+<div class="navside white p-a no-borders box-bar">
+    <div class="nav-stacked nav-active-skin">
+        <ul class="nav">
+      <span class="nav-header hidden-folded m-b-sm">
+        <span class="text-sm text-muted">Help</span>
+      </span>
+
+            <li>
+                <a href="/Help/index" class="nav-link {if $Request.action == 'index'}active{/if}">
+                    {if $Request.action == 'index'}
+                    <span class="arrow right b-skin"></span>
+                    {/if}
+                    <span class="nav-icon p-l-sm">
+            <i class="icon-files h6"></i>
+          </span>
+                    <span class="nav-text p-y-sm">常见帮助</span>
+                </a>
+            </li>
+            <li>
+                <a href="/Help/upload" class="nav-link {if $Request.action == 'upload'}active{/if}">
+                    {if $Request.action == 'upload'}
+                    <span class="arrow right b-skin"></span>
+                    {/if}
+                    <span class="nav-icon p-l-sm">
+            <i class="icon-file-p h6"></i>
+          </span>
+                    <span class="nav-text p-y-sm">上传帮助</span>
+                </a>
+            </li>
+            <li>
+                <a href="/make_money/become_an_author" class="nav-link {if $Request.action == 'become_an_author'}active{/if}">
+                    {if $Request.action == 'become_an_author'}
+                    <span class="arrow right b-skin"></span>
+                    {/if}
+                    <span class="nav-icon p-l-sm">
+            <i class="icon-file-t h6"></i>
+          </span>
+                    <span class="nav-text p-y-sm">成为作者</span>
+                </a>
+            </li>
+            <li>
+                <a href="/make_money/payment_rates" class="nav-link {if $Request.action == 'payment_rates'}active{/if}">
+                    {if $Request.action == 'payment_rates'}
+                    <span class="arrow right b-skin"></span>
+                    {/if}
+                    <span class="nav-icon p-l-sm">
+            <i class="icon-daimaj h6"></i>
+          </span>
+                    <span class="nav-text p-y-sm">分成比例</span>
+                </a>
+            </li>
+            <li>
+                <a href="/make_money/affiliate_program" class="nav-link {if $Request.action == 'affiliate_program'}active{/if}">
+                    {if $Request.action == 'affiliate_program'}
+                    <span class="arrow right b-skin"></span>
+                    {/if}
+                    <span class="nav-icon p-l-sm">
+            <i class="icon-fenxiang h6"></i>
+          </span>
+                    <span class="nav-text p-y-sm">推广赚钱</span>
+                </a>
+            </li>
+            <li>
+                <a href="/make_money/banners_logos" class="nav-link {if $Request.action == 'banners_logos'}active{/if}">
+                    {if $Request.action == 'banners_logos'}
+                    <span class="arrow right b-skin"></span>
+                    {/if}
+                    <span class="nav-icon p-l-sm">
+            <i class="icon-picture-o h6"></i>
+          </span>
+                    <span class="nav-text p-y-sm">广告和LOGO</span>
+                </a>
+            </li>
+
+            <span class="nav-header hidden-folded m-b-sm">
+        <span class="text-sm text-muted">Contact</span>
+      </span>
+
+            <li>
+                <a href="/Help/aboutus" class="nav-link {if $Request.action == 'aboutus'}active{/if}">
+                    {if $Request.action == 'aboutus'}
+                    <span class="arrow right b-skin"></span>
+                    {/if}
+                    <span class="nav-icon p-l-sm">
+            <i class=" icon-lens text-primary" ></i>
+          </span>
+                    <span class="nav-text p-y-sm">关于我们</span>
+                </a>
+            </li>
+            <li>
+                <a href="/contacts" class="nav-link {if $Request.action == 'contacts'}active{/if}">
+                    {if $Request.action == 'contacts'}
+                    <span class="arrow right b-skin"></span>
+                    {/if}
+                    <span class="nav-icon p-l-sm">
+            <i class=" icon-lens text-info" ></i>
+          </span>
+                    <span class="nav-text p-y-sm">联系我们</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+{literal}
+<style>
+    .active .icon-lens{
+        color: rgba(255,255,255,.8) !important;
+    }
+</style>
+{/literal}

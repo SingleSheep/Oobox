@@ -1,0 +1,75 @@
+<!-- Page Content Start -->
+<!-- ================== -->
+<div class="wraper container-fluid">
+    <div class="page-title">
+        <h3 class="title">权限管理</h3>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">权限列表</h3>
+                </div>
+                <div class="panel-body">
+                    <button type="button" class="btn btn-info m-b-5">新增权限</button>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Username</th>
+                                        <th>Age</th>
+                                        <th>City</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {foreach name="data" id="v"}
+                                    <tr>
+                                        <th style="width:5%;">
+                                            <div class="be-checkbox be-checkbox-sm">
+                                                <input id="check1" type="checkbox">
+                                                <label for="check1"></label>
+                                            </div>
+                                        </th>
+                                        <td>{$v['_name']}</td>
+                                        <td>{$v['name']}</td>
+                                        <td class="cell-detail"><span>master</span><span class="cell-detail-description">63e8ec3</span></td>
+                                        <td class="cell-detail"><span>May 6, 2016</span><span class="cell-detail-description">8:30</span></td>
+                                        <td>
+                                            {eq name="$v['status']" value="1"}
+                                            <span class="btn btn-rounded btn-space btn-success">正常</span>
+                                            {else/}
+                                            <span class="btn btn-rounded btn-space btn-warning">禁止</span>
+                                            {/eq}
+                                        </td>
+                                        <td class="text-right">
+                                            <button type="button" class="btn btn-info m-b-5">修改</button>
+                                            <button type="button" class="btn btn-danger m-b-5">删除</button>
+                                            <div class="btn-group btn-hspace">
+                                                <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle" aria-expanded="false">操作 <span class="icon-dropdown mdi mdi-chevron-down"></span></button>
+                                                <ul role="menu" class="dropdown-menu pull-right">
+                                                    <li><a href="javascript:;" ruleId="{$v['id']}" ruleTitle="{$v['title']}" ruleUrl="{$v['name']}" onclick="edit(this)">修改</a></li>
+                                                    <li class="divider"></li>
+                                                    <li><a href="javascript:" onclick="delRule(this,'{$v.id}')" >删除</a></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {/foreach}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End row -->
+
+</div>
+<!-- Page Content Ends -->
+<!-- ================== -->
